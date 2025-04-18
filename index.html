@@ -29,20 +29,22 @@
       background-size: cover;
     }
 
+    /* 优化月亮样式，增加z-index和尺寸调整 */
     .moon {
       position: absolute;
       top: 10%;
       right: 10%;
-      width: 12vw; /* 根据视口宽度调整月亮大小 */
-      height: 12vw;
+      width: 18vw; /* 增大月亮尺寸，适应小屏幕 */
+      height: 18vw;
       background: radial-gradient(circle, #fff 40%, #ccc);
       border-radius: 50%;
       box-shadow: 0 0 40px #fff;
-      z-index: 1;
+      z-index: 10; /* 提高z-index，确保可点击 */
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    /* 按下月亮时的效果 */
     .moon:active {
       transform: scale(1.1); /* 放大效果 */
       box-shadow: 0 0 50px #ff0; /* 强烈的光环 */
@@ -58,13 +60,13 @@
     .container {
       position: relative;
       z-index: 2;
-      max-width: 80%; /* 调整容器宽度 */
+      max-width: 90%; /* 调整容器宽度 */
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 16px;
       backdrop-filter: blur(4px);
       padding: 5vw;
       overflow-y: auto;
-      height: 50vh;
+      height: auto; /* 自适应内容高度 */
       margin-bottom: 8vh;
       display: flex;
       flex-direction: column;
@@ -80,7 +82,7 @@
 
     .letter {
       white-space: pre-wrap;
-      font-size: 3vw; /* 动态调整字体大小 */
+      font-size: 4vw; /* 动态调整字体大小 */
       line-height: 2;
       display: inline-block;
       max-width: 100%;
@@ -189,6 +191,12 @@
         audio.pause();  // 暂停音频
       }
     }
+
+    // 自动播放音频
+    window.onload = function() {
+      var audio = document.getElementById("audio");
+      audio.play();
+    };
 
     const text = `（小燕子，点一点月亮好吗？它亮起来的时候，就是我此刻想你的样子）
       我知道，我又让你失望了。我嘴笨，像块木头，话到嘴边总怕说错，结果越怕越错，最后反而让你更难过。其实每次看你伤心，我心里都像被针扎一样，恨不得抽自己两下——怎么连最在乎的人都哄不好？但今天这些话，我一个字一个字地写，不修饰，不讨好，只想让你知道——我真的不想失去你。
