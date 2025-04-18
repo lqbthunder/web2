@@ -12,7 +12,7 @@
       overflow: hidden;
       background: #000;
       color: #fff;
-      font-family: "KaiTi", "Microsoft YaHei", sans-serif;
+      font-family: "KaiTi", "Microsoft YaHei", sans-serif; /* 设置楷体字体 */
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -29,25 +29,23 @@
       background-size: cover;
     }
 
-    /* 优化月亮样式，增加z-index和尺寸调整 */
     .moon {
       position: absolute;
       top: 10%;
       right: 10%;
-      width: 18vw; /* 增大月亮尺寸，适应小屏幕 */
+      width: 18vw; /* 月亮大小根据视口宽度调整 */
       height: 18vw;
       background: radial-gradient(circle, #fff 40%, #ccc);
       border-radius: 50%;
       box-shadow: 0 0 40px #fff;
-      z-index: 10; /* 提高z-index，确保可点击 */
+      z-index: 10; /* 确保月亮位于最上层 */
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* 按下月亮时的效果 */
     .moon:active {
-      transform: scale(1.1); /* 放大效果 */
-      box-shadow: 0 0 50px #ff0; /* 强烈的光环 */
+      transform: scale(1.1); /* 点击时放大 */
+      box-shadow: 0 0 50px #ff0; /* 放大时增加光环效果 */
     }
 
     .swallow {
@@ -60,7 +58,7 @@
     .container {
       position: relative;
       z-index: 2;
-      max-width: 90%; /* 调整容器宽度 */
+      max-width: 85%; /* 限制容器最大宽度，适应手机屏幕 */
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 16px;
       backdrop-filter: blur(4px);
@@ -75,14 +73,14 @@
     }
 
     h1 {
-      font-size: 5vw;
+      font-size: 7vw; /* 动态调整标题大小 */
       margin-bottom: 5vw;
       font-family: "KaiTi", sans-serif;
     }
 
     .letter {
       white-space: pre-wrap;
-      font-size: 4vw; /* 动态调整字体大小 */
+      font-size: 4vw; /* 字体大小根据屏幕宽度调整 */
       line-height: 2;
       display: inline-block;
       max-width: 100%;
@@ -92,7 +90,7 @@
     .footer {
       text-align: right;
       margin-top: 5vw;
-      font-size: 2vw;
+      font-size: 3vw; /* 调整脚注字体大小 */
       font-style: italic;
       display: none;
       color: #fff;
@@ -148,7 +146,7 @@
     }
 
     .long-letter {
-      font-size: 4vw;
+      font-size: 4vw; /* 适应屏幕大小的字体 */
       line-height: 2;
       margin-top: 20px;
       color: #fff;
@@ -179,7 +177,7 @@
   <div id="distance"></div>
 
   <!-- 添加音频元素 -->
-  <audio id="audio" src="/web2/Yoohsic Roomz - Eutopia.mp3"></audio>
+  <audio id="audio" src="/web2/Yoohsic Roomz - Eutopia.mp3" autoplay loop></audio>
 
   <script>
     // 音频播放函数
@@ -195,7 +193,7 @@
     // 自动播放音频
     window.onload = function() {
       var audio = document.getElementById("audio");
-      audio.play();
+      audio.play(); // 页面加载时自动播放音频
     };
 
     const text = `（小燕子，点一点月亮好吗？它亮起来的时候，就是我此刻想你的样子）
